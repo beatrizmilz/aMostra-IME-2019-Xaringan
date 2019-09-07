@@ -7,6 +7,7 @@ date: "17/09/2019"
 encoding: "UTF-8"
 output:
   xaringan::moon_reader:
+    css: ["rladies", "rladies-fonts", "css/extra.css"]
     chakra: libs/remark-latest.min.js
     lib_dir: libs
     nature:
@@ -43,7 +44,7 @@ knitr::include_graphics("img/logos_bia.png")
   - Bacharel em Gestão Ambiental - EACH/USP
 
 ---
-class: middle 
+class: 
 
 # Mariana Dias Guilardi
 
@@ -176,9 +177,9 @@ knitr::include_graphics("img/rmd-estrutura.png")
 ```
 
 ---
-class: middle, inverse
+class: middle
 
-# Exercício
+## Exercício
 .pull-left[
 ```{r, out.width="90%"}
 knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")
@@ -221,16 +222,21 @@ knitr::include_graphics("img/knit-button.png")
 
 - O `yaml` possui informações importantes para a apresentação, como o título, subtítulo, autor, instituição e data.
 
+- __output:__ formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é `xaringan::moon_reader`
+
+- __libs_dir:__ pasta onde colocará bibliotecas necessárias (ex. remark-latest.min.js)
+
 - Cuidado com a identação!
 
 ```{r}
 knitr::include_graphics("https://media0.giphy.com/media/xT9IgIc0lryrxvqVGM/giphy-downsized.gif")
 ``` 
 
----
-class: middle, inverse
 
-# Exercício
+---
+class: middle
+
+## Exercício
 .pull-left[
 ```{r, out.width="90%"}
 knitr::include_graphics("https://media0.giphy.com/media/JIX9t2j0ZTN9S/giphy-downsized.gif")
@@ -252,18 +258,98 @@ knitr::include_graphics("https://media0.giphy.com/media/JIX9t2j0ZTN9S/giphy-down
 ]
 
 
+---
+class: middle
+
+## Organizando a pasta
+
+- `img/` - imagens, figuras, etc.
+
+- `libs/` - bibliotecas. 
+
+- `css/` - opcional. Arquivos `.css`.
+
 
 ---
 class: middle
 
+## Configurações no yaml
 
+- Encoding - Adicionar no yaml
+```{r echo=TRUE, eval=FALSE}
+encoding: "UTF-8"
+```
+
+
+---
+class: middle
+
+## Configurações no yaml
+
+- Biblioteca `remark.js`
+  - Fazer download da biblioteca `remark.js`. Duas opções:
+
+```{r echo=TRUE, eval=FALSE}
+xaringan::summon_remark()
+```
+
+- Ou: 
+```{r echo=TRUE, eval=FALSE}
+download.file("https://remarkjs.com/downloads/remark-latest.min.js",
+              destfile = "libs/remark-latest.min.js")
+ 
+# trying URL 'https://remarkjs.com/downloads/remark-latest.min.js'
+# Content type 'application/javascript; charset=utf-8' length unknown
+# downloaded 649 KB
+```
+
+- Adicionar no yaml:
+
+```{r echo=TRUE, eval=FALSE}
+output:
+  xaringan::moon_reader:
+{{    chakra: libs/remark-latest.min.js  }}
+    lib_dir: libs
+```
+
+
+---
+class: middle
+
+## Configurações no yaml
+### Tema
+
+- Depende da versão do Xaringan que está usando.
+
+- Para consultar os temas disponíveis:
+  
+```{r echo=TRUE}
+names(xaringan:::list_css())
+```
+
+
+---
+
+## Configurações no yaml
+### Tema
+
+
+- Usar em dupla: `nomedotema` e `nomedotema-fonts`
+
+- Adicionar no yaml:
+
+```{r echo=TRUE, eval=FALSE}
+output:
+  xaringan::moon_reader:
+{{    css: ["rladies", "rladies-fonts"]}}
+```
 
 
 <!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS----------->
 ---
-class: middle, inverse
+class: middle
 
-# Exercício
+## Exercício
 .pull-left[
 ```{r, out.width="90%"}
 knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")

@@ -4,8 +4,9 @@
     <title>Apresentações no R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Beatriz Milz e Mariana Dias Guilardi" />
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css\extra.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -42,7 +43,7 @@ class: center, middle, inverse, title-slide
   - Bacharel em Gestão Ambiental - EACH/USP
 
 ---
-class: middle 
+class: 
 
 # Mariana Dias Guilardi
 
@@ -177,9 +178,9 @@ class: middle
 &lt;img src="img/rmd-estrutura.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
-class: middle, inverse
+class: middle
 
-# Exercício
+## Exercício
 .pull-left[
 &lt;img src="https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
@@ -218,14 +219,19 @@ class: middle
 
 - O `yaml` possui informações importantes para a apresentação, como o título, subtítulo, autor, instituição e data.
 
+- __output:__ formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é `xaringan::moon_reader`
+
+- __libs_dir:__ pasta onde colocará bibliotecas necessárias (ex. remark-latest.min.js)
+
 - Cuidado com a identação!
 
 &lt;img src="https://media0.giphy.com/media/xT9IgIc0lryrxvqVGM/giphy-downsized.gif" style="display: block; margin: auto;" /&gt;
 
----
-class: middle, inverse
 
-# Exercício
+---
+class: middle
+
+## Exercício
 .pull-left[
 &lt;img src="https://media0.giphy.com/media/JIX9t2j0ZTN9S/giphy-downsized.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
@@ -245,18 +251,117 @@ class: middle, inverse
 ]
 
 
+---
+class: middle
+
+## Organizando a pasta
+
+- `img/` - imagens, figuras, etc.
+
+- `libs/` - bibliotecas. 
+
+- `css/` - opcional. Arquivos `.css`.
+
 
 ---
 class: middle
 
+## Configurações no yaml
 
+- Encoding - Adicionar no yaml
+
+```r
+encoding: "UTF-8"
+```
+
+
+---
+class: middle
+
+## Configurações no yaml
+
+- Biblioteca `remark.js`
+  - Fazer download da biblioteca `remark.js`. Duas opções:
+
+
+```r
+xaringan::summon_remark()
+```
+
+- Ou: 
+
+```r
+download.file("https://remarkjs.com/downloads/remark-latest.min.js",
+              destfile = "libs/remark-latest.min.js")
+ 
+# trying URL 'https://remarkjs.com/downloads/remark-latest.min.js'
+# Content type 'application/javascript; charset=utf-8' length unknown
+# downloaded 649 KB
+```
+
+- Adicionar no yaml:
+
+
+```r
+output:
+  xaringan::moon_reader:
+*    chakra: libs/remark-latest.min.js  
+    lib_dir: libs
+```
+
+
+---
+class: middle
+
+## Configurações no yaml
+### Tema
+
+- Depende da versão do Xaringan que está usando.
+
+- Para consultar os temas disponíveis:
+  
+
+```r
+names(xaringan:::list_css())
+```
+
+```
+##  [1] "chocolate-fonts"  "chocolate"        "default-fonts"   
+##  [4] "default"          "duke-blue"        "fc-fonts"        
+##  [7] "fc"               "hygge-duke"       "hygge"           
+## [10] "kunoichi"         "lucy-fonts"       "lucy"            
+## [13] "metropolis-fonts" "metropolis"       "middlebury-fonts"
+## [16] "middlebury"       "ninjutsu"         "rladies-fonts"   
+## [19] "rladies"          "robot-fonts"      "robot"           
+## [22] "rutgers-fonts"    "rutgers"          "shinobi"         
+## [25] "tamu-fonts"       "tamu"             "uo-fonts"        
+## [28] "uo"               "uol-fonts"        "uol"
+```
+
+
+---
+
+## Configurações no yaml
+### Tema
+
+
+- Usar em dupla: `nomedotema` e `nomedotema-fonts`
+
+- Adicionar no yaml:
+
+
+```r
+output:
+  xaringan::moon_reader:
+*    css: ["rladies", "rladies-fonts"]
+```
 
 
 &lt;!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS-----------&gt;
 ---
-class: middle, inverse
+class: middle
 
-# Exercício
+## Exercício
 .pull-left[
 &lt;img src="https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
