@@ -1,0 +1,14 @@
+---
+title: "Título da apresentação"
+subtitle: "Subtítulo da apresentação"
+author: "Autor"
+institute: "Instituição"
+date: "07/09/2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---

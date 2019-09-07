@@ -250,6 +250,26 @@ class: middle
   
 ]
 
+---
+### Exemplo do código yaml:
+
+
+```r
+---
+*title: "Título da apresentação"
+*subtitle: "Subtítulo da apresentação"
+*author: "Autor"
+*institute: "Instituição"
+*date: "07/09/2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```
 
 ---
 class: middle
@@ -268,7 +288,10 @@ class: middle
 
 ## Configurações no yaml
 
-- Encoding - Adicionar no yaml
+### Encoding
+
+- Adicionar no yaml:
+
 
 ```r
 encoding: "UTF-8"
@@ -280,9 +303,14 @@ class: middle
 
 ## Configurações no yaml
 
-- Biblioteca `remark.js`
-  - Fazer download da biblioteca `remark.js`. Duas opções:
+### Biblioteca `remark.js`
 
+- É opcional. Essa etapa possibilita que sua apresentação seja visualizada offline!
+
+
+- Fazer download da biblioteca `remark.js`. Duas opções:
+  - A função `xaringan::summon_remark()` faz o download da versão mais atual do `remark.js` e salva na pasta `/libs`. 
+  
 
 ```r
 xaringan::summon_remark()
@@ -293,10 +321,6 @@ xaringan::summon_remark()
 ```r
 download.file("https://remarkjs.com/downloads/remark-latest.min.js",
               destfile = "libs/remark-latest.min.js")
- 
-# trying URL 'https://remarkjs.com/downloads/remark-latest.min.js'
-# Content type 'application/javascript; charset=utf-8' length unknown
-# downloaded 649 KB
 ```
 
 - Adicionar no yaml:
@@ -356,12 +380,91 @@ output:
 *    css: ["rladies", "rladies-fonts"]
 ```
 
+---
 
+### Exemplo do código yaml:
+
+
+```r
+---
+title: "Título da apresentação"
+subtitle: "Subtítulo da apresentação"
+author: "Autor"
+institute: "Instituição"
+date: "07/09/2019"
+*encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+*   chakra: libs/remark-latest.min.js  
+*   css: ["rladies", "rladies-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```
+
+---
+class: middle
+
+## Exercício 
+### `exercicios/exercicio1.Rmd`
+
+.pull-left[
+&lt;img src="https://media1.giphy.com/media/mCRJDo24UvJMA/giphy.gif" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+- Adicione no yaml: 
+    - encoding, 
+    - tema 
+    - biblioteca remark.js 
+
+
+- Compile o arquivo. O que mudou?
+  
+]
+
+---
+# Adicionando conteúdo na apresentação
+
+- Atualiza a apresentação enquanto é editada:
+
+
+```r
+xaringan::inf_mr()
+```
+
+
+## Markdown
+
+- O RMarkdown possibilita a utilização da linguagem de marcação simples Markdown. Essa linguagem de marcação foi elaborada para ser fácil de ler e  fácil de escrever.
+
+* Confira as cheatsheets: [Rmarkdown Cheatsheet 2.0](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) e [Rmarkdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
+
+
+---
+### Elementos básicos 
+
+`**negrito**` 
+
+`_italico_`
+
+### Títulos
+
+`# Título 1`
+
+`## Título 2`
+
+`### Título 3` 
 &lt;!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS-----------&gt;
 ---
 class: middle
 
 ## Exercício
+### `exercicios/exercicioX.Rmd`
 .pull-left[
 &lt;img src="https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
