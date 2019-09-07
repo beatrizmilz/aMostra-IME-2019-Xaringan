@@ -163,7 +163,7 @@ class: middle
   
   - New RMarkdown > From Template > Ninja presentation
   
-```{r, out.width="60%"}
+```{r, out.width="50%"}
 knitr::include_graphics("img/criar-xaringan.JPG")
 ```
 
@@ -435,17 +435,80 @@ xaringan::inf_mr()
 ---
 ### Elementos básicos 
 
-`**negrito**` 
+`**negrito**` - **negrito**
 
-`_italico_`
+`_itálico_` - _itálico_
 
+`~~riscado~~` - ~~riscado~~ 
+---
 ### Títulos
 
 `# Título 1`
+# Título 1
 
 `## Título 2`
+## Título 2
 
-`### Título 3` 
+`### Título 3`
+### Título 3
+
+---
+### Listas
+
+Você pode fazer uma lista escrevendo com hífens ou asteriscos, como a seguir:
+
+`* Maçã`
+
+`* Banana`
+
+`* Uva`
+
+ou desta forma:
+
+`- Maçã`
+
+`- Banana`
+
+`- Uva`
+
+Cada um vai aparecer como:
+
+- Maçã
+- Banana
+- Uva
+
+---
+### Fazendo uma lista enumerada
+Você pode fazer uma lista numerada usando somente números. Você pode usar o mesmo número quantas vezes quiser: 
+
+`1. Maçã`
+
+`1. Banana`
+
+`1. Uva`
+
+Isso irá aparecer como:
+
+1. Maçã
+1. Banana
+1. Uva
+
+---
+### Outros elementos em markdown
+
+- Você pode fazer um hiperlink dessa forma: `[texto para mostrar](http://the-web-page.com)`.
+
+- Você pode incluir arquivo de imagem dessa forma: `![título](http://url/for/file)`
+
+- Se você sabe como escrever equações em LaTeX, ficará feliz em saber que pode usar `$$` para inserir equações matemáticas, como: 
+
+```{r, echo=TRUE, eval=FALSE}
+$$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
+```
+
+$$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
+
+
 <!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS----------->
 ---
 class: middle
