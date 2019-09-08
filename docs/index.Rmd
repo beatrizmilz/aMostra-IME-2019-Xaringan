@@ -36,7 +36,7 @@ write_delim(x = mtcars,
 # Beatriz Milz
 - Doutoranda no Programa de Pós-Graduação em Ciência Ambiental (PROCAM) - Instituto de Energia e Ambiente - Universidade de São Paulo
 
-  - Bolsita FAPESP - Processo nº 2018/23771-6 
+  - Bolsista FAPESP - Processo nº 2018/23771-6 
   
   - Projeto Temático FAPESP Macroamb - Processo nº 2015/03804-9 
   
@@ -59,7 +59,19 @@ class:
 
 # Mariana Dias Guilardi
 
-<!------- Mari preencher aqui ------->
+- Mestranda no Programa Interunidades em Biotecnologia - Universidade de São Paulo/Instituto Butantan/Instituto Pesquisas Tecnológicas
+
+  - Bolsista CAPES
+ 
+- Participante do [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) desde outubro de 2018 `r emo::ji("purple_heart")`
+
+- Participante do [PyLadies São Paulo](https://www.facebook.com/PyLadiesSP) desde julho de 2018 `r emo::ji("red_heart")`
+
+- [Currículo disponível neste link](https://bit.ly/2QPS4Rr) 
+
+- Anteriormente:
+  - Especialista em Animais de Interesse em Saúde - CEFOR/SUS/SP 
+  - Bacharel em Ciências Biológicas - UFSCar campus Sorocaba `r emo::ji("woman_scientist_medium_dark_skin_tone")` `r emo::ji("dna")`
   
 ---
 class: 
