@@ -22,6 +22,17 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message=FALSE, warning=FALSE, cache = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+```
+
+```{r eval=FALSE, include=FALSE}
+
+write_delim(x = mtcars,
+            path = "~/GitHub/aMostra-IME-2019-Xaringan/data/mtcars.csv")
+```
+
+
 # Beatriz Milz
 - Doutoranda no Programa de Pós-Graduação em Ciência Ambiental (PROCAM) - Instituto de Energia e Ambiente - Universidade de São Paulo
 
@@ -528,6 +539,27 @@ class: middle
 O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
 
 ]
+---
+class: middle
+
+## Como delimitar slides?
+
+- No xaringan, os slides são delimitados por `---` no início da linha.
+
+- Para fazer slides que aparecem aos poucos ( _incremental slides_ ), utilize `--` no início da linha. Ex:
+
+--
+
+O conteúdo 
+--
+
+aparece 
+--
+
+aos poucos!
+
+
+
 
 ---
 
@@ -546,6 +578,23 @@ knitr::include_graphics("img/create-chunck.png")
 ```{r echo=TRUE}
 summary(mtcars)
 ```
+---
+### Exemplo:
+
+.left-code[
+```{r plot-exemplo-ggplot2, echo=TRUE, fig.show="hide", out.width="95%"}
+library(ggplot2)
+ggplot(mtcars) +
+  aes(x = hp,
+      y = mpg,
+      colour = cyl) +
+  geom_point(size = 2L)
+```
+]
+
+.right-plot[
+![](`r knitr::fig_chunk("plot-exemplo-ggplot2", "png")`)
+]
 
 ---
 class: middle
@@ -559,17 +608,14 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 ]
 
 .pull-right[
+- Use `--- ` para separar o conteúdo em slides
+- Adicione um chunck para as seguintes tarefas:
+  - Faça o download da base de [capítulos da R-Ladies](https://benubah.github.io/r-community-explorer/data/rladies.csv). Fonte: [Shiny - R Community Explorer](https://benubah.github.io/r-community-explorer/rladies.html)
+  - Carregue a base
+  - Quantos capítulos estão cadastrados nessa base?
+  - No total, quantos membros a R-Ladies tem?
+  - Faça algum gráfico com os dados dessa base. Ex: histograma com a frequência de membros.
 
-- Adicione um chunck para:
-
-
-- Um gráfico
-
-
-
-
-
-  
 ]
 
 
@@ -577,6 +623,38 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 ---
 ### Opções de Chunck
+
+
+---
+class: 
+
+## Códigos em R - Opções de chunck
+
+.pull-left[
+### Código + Resultado
+- `echo=TRUE`
+```{r echo=TRUE}
+nrow(mtcars)
+```
+]
+
+.pull-right[
+
+### Apenas código
+- `echo=TRUE, eval=FALSE`
+```{r echo=TRUE, eval=FALSE}
+nrow(mtcars)
+```
+
+### Apenas resultado
+- `echo=FALSE`
+```{r echo=FALSE}
+nrow(mtcars)
+```
+
+]
+
+
 
 ---
 ### Opções globais de Chunck
@@ -596,6 +674,24 @@ Para configurar as opções globais de chunck, modifique o código abaixo e insi
 ```{r echo=FALSE, out.width="90%"}
 knitr::include_graphics("img/rmd-dicas.png")
 ```
+
+
+---
+### Código inline
+
+A base mtcars possui `r nrow(mtcars)` carros.
+
+**Código Markdown:**
+
+```{r echo=TRUE}
+#   A base mtcars possui `r nrow(mtcars)` carros.
+```
+---
+
+# Dicas:
+- Pacote remedy 
+- Pacote emo - usar emoticons
+- [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/)
 
 <!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS----------->
 ---

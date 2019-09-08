@@ -23,6 +23,11 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
+
+
+
 # Beatriz Milz
 - Doutoranda no Programa de Pós-Graduação em Ciência Ambiental (PROCAM) - Instituto de Energia e Ambiente - Universidade de São Paulo
 
@@ -542,6 +547,27 @@ class: middle
 O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
 
 ]
+---
+class: middle
+
+## Como delimitar slides?
+
+- No xaringan, os slides são delimitados por `---` no início da linha.
+
+- Para fazer slides que aparecem aos poucos ( _incremental slides_ ), utilize `--` no início da linha. Ex:
+
+--
+
+O conteúdo 
+--
+
+aparece 
+--
+
+aos poucos!
+
+
+
 
 ---
 
@@ -583,6 +609,24 @@ summary(mtcars)
 ##  3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
 ##  Max.   :1.0000   Max.   :5.000   Max.   :8.000
 ```
+---
+### Exemplo:
+
+.left-code[
+
+```r
+library(ggplot2)
+ggplot(mtcars) +
+  aes(x = hp,
+      y = mpg,
+      colour = cyl) +
+  geom_point(size = 2L)
+```
+]
+
+.right-plot[
+![](index_files/figure-html/plot-exemplo-ggplot2-1.png)
+]
 
 ---
 class: middle
@@ -594,17 +638,14 @@ class: middle
 ]
 
 .pull-right[
+- Use `--- ` para separar o conteúdo em slides
+- Adicione um chunck para as seguintes tarefas:
+  - Faça o download da base de [capítulos da R-Ladies](https://benubah.github.io/r-community-explorer/data/rladies.csv). Fonte: [Shiny - R Community Explorer](https://benubah.github.io/r-community-explorer/rladies.html)
+  - Carregue a base
+  - Quantos capítulos estão cadastrados nessa base?
+  - No total, quantos membros a R-Ladies tem?
+  - Faça algum gráfico com os dados dessa base. Ex: histograma com a frequência de membros.
 
-- Adicione um chunck para:
-
-
-- Um gráfico
-
-
-
-
-
-  
 ]
 
 
@@ -612,6 +653,45 @@ class: middle
 
 ---
 ### Opções de Chunck
+
+
+---
+class: 
+
+## Códigos em R - Opções de chunck
+
+.pull-left[
+### Código + Resultado
+- `echo=TRUE`
+
+```r
+nrow(mtcars)
+```
+
+```
+## [1] 32
+```
+]
+
+.pull-right[
+
+### Apenas código
+- `echo=TRUE, eval=FALSE`
+
+```r
+nrow(mtcars)
+```
+
+### Apenas resultado
+- `echo=FALSE`
+
+```
+## [1] 32
+```
+
+]
+
+
 
 ---
 ### Opções globais de Chunck
@@ -623,6 +703,25 @@ Para configurar as opções globais de chunck, modifique o código abaixo e insi
 ---
 ## Dicas - RStudio
 &lt;img src="img/rmd-dicas.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+---
+### Código inline
+
+A base mtcars possui 32 carros.
+
+**Código Markdown:**
+
+
+```r
+#   A base mtcars possui `r nrow(mtcars)` carros.
+```
+---
+
+# Dicas:
+- Pacote remedy 
+- Pacote emo - usar emoticons
+- [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/)
 
 &lt;!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS-----------&gt;
 ---
