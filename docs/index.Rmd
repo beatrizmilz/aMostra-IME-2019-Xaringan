@@ -508,6 +508,94 @@ $$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
 
 $$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
 
+---
+class: middle
+
+## Exercício
+### `exercicios/exercicio2.Rmd`
+.pull-left[
+- Abra a cheatsheet do RMarkdown.
+
+- Reproduza a seguinte formatação no arquivo de exercício:
+
+- Compile e veja o resultado
+]
+
+.pull-right[
+
+# xaringan
+
+O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
+
+]
+
+---
+
+## Chuncks de Código R
+
+Os chuncks são campos onde podemos inserir código de R (ou Python, SQL,  Bash...) em um arquivo RMarkdown. Existe um atalho do teclado para criar chunks no RStudio:  `Ctrl + ALt + I`. Também é possível criar um chunck clicando no seguinte botão do RStudio:
+
+
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/create-chunck.png")
+```
+
+---
+### Exemplo:
+
+```{r echo=TRUE}
+summary(mtcars)
+```
+
+---
+class: middle
+
+## Exercício
+### `exercicios/exercicio3.Rmd`
+.pull-left[
+```{r, out.width="90%"}
+knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")
+```
+]
+
+.pull-right[
+
+- Adicione um chunck para:
+
+
+- Um gráfico
+
+
+
+
+
+  
+]
+
+
+
+
+---
+### Opções de Chunck
+
+---
+### Opções globais de Chunck
+
+As opções globais de chunck são opções de chucnk que são válidas para o documento inteiro. Algumas opções são úteis, como `fig.align = "center"`.
+Para configurar as opções globais de chunck, modifique o código abaixo e insira após o código `yaml` (retire os `#` no início de cada linha):
+
+```{r}
+
+# ```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+# ```
+
+```
+---
+## Dicas - RStudio
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("img/rmd-dicas.png")
+```
 
 <!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS----------->
 ---

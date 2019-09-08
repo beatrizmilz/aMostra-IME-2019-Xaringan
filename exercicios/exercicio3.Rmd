@@ -17,5 +17,7 @@ output:
 ---
 
 
-xaringan
-O pacote xaringan foi criado por Yihui Xie, que é um ninja desenvolvedor de software na RStudio.
+# xaringan
+
+O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
+
