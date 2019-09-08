@@ -63,15 +63,16 @@ class:
 
   - Bolsista CAPES
  
-- Participante do [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) desde outubro de 2018 `r emo::ji("purple_heart")`
+- Participante do [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) desde novembro de 2018 `r emo::ji("purple_heart")`
 
 - Participante do [PyLadies São Paulo](https://www.facebook.com/PyLadiesSP) desde julho de 2018 `r emo::ji("red_heart")`
+  - [Grupo de Estudos em Data Science (GEDS)](https://github.com/PyLadiesSP/data-science)
 
 - [Currículo disponível neste link](https://bit.ly/2QPS4Rr) 
 
 - Anteriormente:
   - Especialista em Animais de Interesse em Saúde - CEFOR/SUS/SP 
-  - Bacharel em Ciências Biológicas - UFSCar campus Sorocaba `r emo::ji("woman_scientist_medium_dark_skin_tone")` `r emo::ji("dna")`
+  - Bacharel em Ciências Biológicas - UFSCar _campus_ Sorocaba `r emo::ji("woman_scientist_medium_dark_skin_tone")` `r emo::ji("dna")`
   
 ---
 class: 
@@ -632,7 +633,6 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 
 
-
 ---
 ### Opções de Chunck
 
@@ -698,8 +698,56 @@ A base mtcars possui `r nrow(mtcars)` carros.
 ```{r echo=TRUE}
 #   A base mtcars possui `r nrow(mtcars)` carros.
 ```
----
 
+---
+###Adicionando imagens usando o Knitr
+
+Função: `knitr::include_graphics()`
+
+Exemplo:
+```{r  out.width = "50%"}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- `out.width = "50%"` - tamanho da imagem
+
+
+```{r echo=FALSE, out.width = "50%"}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+[Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
+
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- **Alinhamento da figura**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+```{r echo=FALSE,  out.width="20%", fig.align='left'} 
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+```{r echo=FALSE,  out.width="20%", fig.align='right'}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- Legenda de figura 
+
+- `fig.cap="Logo R"`
+
+
+```{r echo=FALSE,  out.width="50%", fig.cap="R Logo", fig.align='center'}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png")
+```
+
+---
 # Dicas:
 - Pacote remedy 
 - Pacote emo - usar emoticons

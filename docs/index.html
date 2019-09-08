@@ -56,15 +56,16 @@ class:
 
   - Bolsista CAPES
  
-- Participante do [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) desde outubro de 2018 💜
+- Participante do [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) desde novembro de 2018 💜
 
 - Participante do [PyLadies São Paulo](https://www.facebook.com/PyLadiesSP) desde julho de 2018 ❤️
+  - [Grupo de Estudos em Data Science (GEDS)](https://github.com/PyLadiesSP/data-science)
 
 - [Currículo disponível neste link](https://bit.ly/2QPS4Rr) 
 
 - Anteriormente:
   - Especialista em Animais de Interesse em Saúde - CEFOR/SUS/SP 
-  - Bacharel em Ciências Biológicas - UFSCar campus Sorocaba 👩🏾‍🔬 🧬
+  - Bacharel em Ciências Biológicas - UFSCar _campus_ Sorocaba 👩🏾‍🔬 🧬
   
 ---
 class: 
@@ -662,7 +663,6 @@ class: middle
 
 
 
-
 ---
 ### Opções de Chunck
 
@@ -728,8 +728,49 @@ A base mtcars possui 32 carros.
 ```r
 #   A base mtcars possui `r nrow(mtcars)` carros.
 ```
----
 
+---
+###Adicionando imagens usando o Knitr
+
+Função: `knitr::include_graphics()`
+
+Exemplo:
+&lt;img src="https://www.r-project.org/Rlogo.png" width="50%" style="display: block; margin: auto;" /&gt;
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- `out.width = "50%"` - tamanho da imagem
+
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+[Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
+
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- **Alinhamento da figura**
+- `fig.align = 'center', 'default', **'left'**,'right'` 
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="20%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+- `fig.align = 'center', 'default', 'left', **'right' **`
+
+&lt;img src="https://www.r-project.org/Rlogo.png" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
+---
+###Adicionando imagens usando Knitr: opções de Chunk 
+
+- Legenda de figura 
+
+- `fig.cap="Logo R"`
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://www.r-project.org/Rlogo.png" alt="R Logo" width="50%" /&gt;
+&lt;p class="caption"&gt;R Logo&lt;/p&gt;
+&lt;/div&gt;
+
+---
 # Dicas:
 - Pacote remedy 
 - Pacote emo - usar emoticons
