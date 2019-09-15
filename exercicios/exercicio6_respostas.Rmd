@@ -1,0 +1,100 @@
+---
+title: "Título da apresentação"
+subtitle: "Subtítulo da apresentação"
+author: "Autor"
+institute: "Instituição"
+date: "07/09/2019"
+encoding: "UTF-8"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: ["kunoichi", "ninjutsu"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# xaringan
+
+O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
+
+---
+
+# Exercício 3
+
+## Faça o download da base de dados de Capítulos da R-Ladies
+```{r}
+url <- "https://benubah.github.io/r-community-explorer/data/rladies.csv"
+download.file(url, "data/rladies.csv")
+```
+
+---
+## Carregue a base de dados
+```{r message=FALSE, warning=FALSE}
+library(readr)
+rladies <- read_csv("data/rladies.csv")
+```
+---
+
+## Quantos capítulos estão cadastrados na base?
+```{r}
+nrow(rladies)
+```
+---
+## No total, quantos membros a R-Ladies tem?
+```{r}
+sum(rladies$members)
+```
+---
+## Faça algum gráfico
+```{r, out.width="60%", fig.align='center'}
+hist(x = rladies$members)
+```
+
+---
+# Exercício 4
+- A organização R-Ladies atualmente apresenta `r nrow(rladies)` capítulos, e um total de `r format(sum(rladies$members), scientific = FALSE)` participantes.
+
+---
+# Exercício 5
+
+- Adicione a imagem: centralizada, sem aparecer o código que a gera. Coloque uma legenda com o nome do pacote.
+
+```{r echo=FALSE, fig.align='center', fig.cap="Pacote xaringan", out.width="50%"}
+url <- "https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png"
+
+knitr::include_graphics(url)
+
+```
+
+---
+# Exercício 6
+
+```{r include=FALSE}
+# Prepara a base rladies:
+
+# Filtrar: apenas Brasil
+rladies_br_filtro <- rladies[rladies$country=="Brazil", ]
+
+# Ordenar de forma decrescente pelo número de eventos
+rladies_br_ordenar <- rladies_br_filtro[order(-rladies_br_filtro$past_events),]
+
+# Retirar colunas desnecessárias
+rladies_br <-  rladies_br_ordenar[c(-1,-3, -4, -5, -7)]
+```
+
+
+- Adicione uma tabela que contém apenas as linhas dos capítulos do Brasil:
+  - Utilize a função `kable` do pacote `knitr`
+  - Os argumentos:
+      - `format = "html"` - Formata a tabela para html
+      - `align = "c"` - Centraliza o conteúdo nas células
+      
+      
+```{r echo=FALSE}
+knitr::kable(rladies_br, format = "html", align = "c")
+```
+
+

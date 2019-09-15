@@ -117,6 +117,9 @@ class: middle
 ## RStudio
 - Download em: https://www.rstudio.com/products/rstudio/download/
 
+## Download do seguinte repositório para exercícios:
+https://github.com/beatrizmilz/aMostra-IME-2019-Xaringan
+
 ---
 class: middle
 
@@ -252,7 +255,7 @@ knitr::include_graphics("img/knit-button.png")
 
 - O `yaml` possui informações importantes para a apresentação, como o título, subtítulo, autor, instituição, data, etc.
 
-- __output:__ formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é `xaringan::moon_reader`
+- __output:__ formato (Ex: html_document, pdf_document, etc). No caso do  `xaringan` , o output é `xaringan::moon_reader`
 
 - __libs_dir:__ pasta onde colocará bibliotecas necessárias (ex. remark-latest.min.js)
 
@@ -262,6 +265,23 @@ knitr::include_graphics("img/knit-button.png")
 knitr::include_graphics("https://media0.giphy.com/media/xT9IgIc0lryrxvqVGM/giphy-downsized.gif")
 ``` 
 
+---
+class: middle
+## ERRO NO KNITR!
+
+- Boa prática: compilar com frequência. 
+
+- É bem comum dar erro ao compilar o arquivo pois **qualquer** código errado causa isso. Algumas coisas pra se observar:
+
+- **yaml header** - se algo estiver errado, vai dar erro ao compilar. 
+Muito cuidado com a identação!
+
+- **Código nos chunks** - teste o _Run All Chunks_ e veja se aparece erro em algum chunk específico.
+Se descobrir, tente verificar o que há de errado no código (pode ser a falta de um parênteses, vírgula, entre outros).
+
+```{r echo=FALSE, out.width="30%"}
+knitr::include_graphics("https://media.giphy.com/media/j9GASQ5ocrIRicnmyq/giphy.gif")
+```
 
 ---
 class: middle
@@ -307,6 +327,7 @@ output:
 ---
 ```
 
+- Aperte H ou ? para conferir a lista de atalhos do  `xaringan` 
 ---
 class: middle
 
@@ -372,7 +393,7 @@ class: middle
 ## Configurações no yaml
 ### Tema
 
-- Depende da versão do Xaringan que está usando.
+- Depende da versão do `xaringan` que está usando.
 
 - Para consultar os temas disponíveis:
   
@@ -485,7 +506,7 @@ xaringan::inf_mr()
 ---
 ### Listas
 
-Você pode fazer uma lista escrevendo com hífens ou asteriscos, como a seguir:
+Você pode fazer uma lista escrevendo com hifens ou asteriscos, como a seguir:
 
 `* Maçã`
 
@@ -649,7 +670,7 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 - `eval=FALSE` - mostra o código, mas ele não é executado
 
-- `warning=FALSE` e `message=FALSE` - oculta messagens de avisos produzidas
+- `warning=FALSE` e `message=FALSE` - oculta mensagens de avisos produzidas
 
 - `out.width` - controla o a largura das figuras, gráficos, tabelas geradas (Ex: out.width = "100%")
 
@@ -683,6 +704,16 @@ nrow(mtcars)
 
 ]
 
+---
+## Código inline
+
+A base mtcars possui `r nrow(mtcars)` carros.
+
+**Código Markdown:**
+
+```{r echo=TRUE}
+#   A base mtcars possui `r nrow(mtcars)` carros.
+```
 
 
 ---
@@ -695,7 +726,7 @@ Para configurar as opções globais de chunk, modifique o código abaixo e insir
   - Configurações do chunk:
 `{r setup, include=FALSE}`
   - Conteúdo do chunk:
-`knitr::opts_chunk$set(echo = TRUE)`
+`knitr::opts_chunk$set(...)`
 
 
 ---
@@ -706,16 +737,6 @@ knitr::include_graphics("img/rmd-dicas.png")
 ```
 
 
----
-### Código inline
-
-A base mtcars possui `r nrow(mtcars)` carros.
-
-**Código Markdown:**
-
-```{r echo=TRUE}
-#   A base mtcars possui `r nrow(mtcars)` carros.
-```
 
 ---
 class: middle
@@ -739,7 +760,7 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 
 ---
-### Adicionando imagens usando o Knitr
+### Adicionando imagens usando o `knitr`
 
 Função: `knitr::include_graphics()`
 
@@ -748,7 +769,7 @@ Exemplo:
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
-### Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando `knitr`: opções de Chunk 
 
 - `out.width = "50%"` - tamanho da imagem
 
@@ -760,7 +781,7 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 [Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
 
 ---
-### Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando `knitr`: opções de Chunk 
 
 - **Alinhamento da figura**
 - `fig.align = 'center', 'default', **'left'**,'right'` 
@@ -775,7 +796,7 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
-### Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando `knitr`: opções de Chunk 
 
 - Legenda de figura 
 
@@ -807,8 +828,59 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 ]
 
+---
+### Adicionando tabelas 
+
+- Markdown
+- `knitr::kable()`
+- `DT::datatable(iris)`
+
+- Exemplo com knitr:
+```{r echo=TRUE}
+knitr::kable(x = head(iris), format = "html")
+```
 
 
+---
+class: middle
+
+### `exercicios/exercicio6.Rmd`
+.pull-left[
+```{r, out.width="90%"}
+knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")
+```
+]
+
+.pull-right[
+- Deixamos um código que gera a base `rladies_br`, contendo apenas capítulos no Brasil.
+]
+---
+Class: middle
+
+# Vantagens e desvantagens
+
+.pull-left[
+`r emo::ji("+1")` É reprodutível.
+
+`r emo::ji("+1")` Dá para facilmente inserir equações em LaTeX.
+
+`r emo::ji("+1")` Usar códigos R e seus resultados.
+
+`r emo::ji("+1")` É possível utilizar o versionamento de código utilizando `Git` e `GitHub`.
+
+`r emo::ji("+1")` Possibilita o desenvolvimento do material em equipe (através do GitHub).
+
+`r emo::ji("+1")` Disponibilizando online e enviando o link, é possível atualizar o conteúdo em qualquer momento.
+]
+
+.pull-right[
+
+`r emo::ji("-1")` Em formato HTML, não é autocontido (possui dependências).
+
+`r emo::ji("-1")` Para personalizar visualmente a apresentação, caso não tenha um tema que agrade, precisa personalizar utilizando CSS.
+
+`r emo::ji("-1")` Encontrar erros..  `r emo::ji("sob")`
+]
 <!-------------FINALIZANDO A APRESENTAÇÃO----------->
 
 ---
@@ -817,7 +889,8 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 - Pacote [emo](https://github.com/hadley/emo) - Usar emoticons
 - Pacote [ermoji](https://github.com/gadenbuie/ermoji) - Addin que facilita encontrar os emojis
 - Pacote [giphyr](https://github.com/haozhu233/giphyr) - Addin que facilita encontrar gifs
-- [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/) - Pacote que facilita personalizar o tema
+- Pacote [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/) - Pacote que facilita personalizar o tema
+- Pacote [kableExtra](http://haozhu233.github.io/kableExtra/) - disponibiliza mais funcionalidades para criar tabelas
 
 ### Converter a apresentação em PDF
 - Pacote `pagedown` oferece uma função para isso:
@@ -830,6 +903,44 @@ pagedown::chrome_print("index.html")
 ### Divulgando online
 - [GitHub Pages](https://pages.github.com/)
 - [Netlify](https://www.netlify.com/)
+
+---
+## Outras apresentações
+
+- https://beatrizmilz.github.io/IME-27-08-2019/
+
+- https://beatrizmilz.github.io/IV-SER-RLadies/
+
+
+
+---
+class: middle
+
+# Referências
+
+- **RMarkdown**:
+  - [RMarkdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+  
+  - [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
+  
+  - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+  
+  - [R for Data Science - Cap 27: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
+  
+  - [Software Carpentry - Producing Reports With knitr ](https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/)
+
+  - [Advanced R Markdown](https://slides.yihui.name/2017-rstudio-conf-rmarkdown-Yihui-Xie.html)
+
+- **Xaringan**:
+
+  - [Apresentação da documentação](http://slides.yihui.name/xaringan/) 
+
+  - [Xaringan Wiki](https://github.com/yihui/xaringan/wiki)
+  
+  - [Livro R Markdown (Capítulo 7)](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
+  - [Remark.js Wiki](https://github.com/gnab/remark/wiki)
+
 
 ---
 class: middle  
@@ -847,4 +958,4 @@ knitr::include_graphics("https://media1.giphy.com/media/3oz8xIsloV7zOmt81G/giphy
 - [Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística](https://www.ime.usp.br/~amostra/) - IME USP pelo mini-curso de RMarkdown em 2018
 
 
-- Apresentação feita com [Xaringan](https://github.com/yihui/xaringan).
+- Apresentação feita com [ `xaringan` ](https://github.com/yihui/xaringan).
