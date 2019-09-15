@@ -853,6 +853,8 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 .pull-right[
 - Deixamos um código que gera a base `rladies_br`, contendo apenas capítulos no Brasil.
+
+- Crie uma tabela com esses dados, usando o `knitr::kable()`.
 ]
 ---
 Class: middle
