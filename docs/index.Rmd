@@ -19,7 +19,13 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 
-knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message=FALSE, warning=FALSE, cache = TRUE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  fig.align = "center",
+  message = FALSE,
+  warning = FALSE,
+  cache = TRUE
+)
 ```
 
 ```{r}
@@ -244,7 +250,7 @@ knitr::include_graphics("img/knit-button.png")
 
 ## Alterar yaml
 
-- O `yaml` possui informações importantes para a apresentação, como o título, subtítulo, autor, instituição e data.
+- O `yaml` possui informações importantes para a apresentação, como o título, subtítulo, autor, instituição, data, etc.
 
 - __output:__ formato (Ex: html_document, pdf_document, etc). No caso do Xaringan, o output é `xaringan::moon_reader`
 
@@ -269,11 +275,11 @@ knitr::include_graphics("https://media0.giphy.com/media/JIX9t2j0ZTN9S/giphy-down
 
 .pull-right[
 
-- Salve o arquivo como `exercicio0.Rmd`
+- Na pasta `exercicios/`, Salve o arquivo como `exercicio0.Rmd`
 
 - Compile (botão `knit`)
 
-- Veja o arquivo (caso não abra automaticamente, procure o arquivo `exercicio0.html` na pasta do projeto)
+- Veja o arquivo (caso não abra automaticamente, procure o arquivo `exercicio0.html` na pasta `exercicios/` do projeto)
 
 - Mude as seguintes informações no yaml: title, subtitle, author, institute, date
 
@@ -328,7 +334,7 @@ encoding: "UTF-8"
 
 
 ---
-class: middle
+class: 
 
 ## Configurações no yaml
 
@@ -349,7 +355,7 @@ xaringan::summon_remark()
 download.file("https://remarkjs.com/downloads/remark-latest.min.js",
               destfile = "libs/remark-latest.min.js")
 ```
-
+--
 - Adicionar no yaml:
 
 ```{r echo=TRUE, eval=FALSE}
@@ -524,7 +530,7 @@ Isso irá aparecer como:
 
 - Você pode incluir arquivo de imagem dessa forma: `![título](http://url/for/file)`
 
-- Se você sabe como escrever equações em LaTeX, ficará feliz em saber que pode usar `$$` para inserir equações matemáticas, como: 
+- Se você utiliza equações em LaTeX, ficará feliz em saber que pode usar `$$` para inserir equações matemáticas, como: 
 
 ```{r, echo=TRUE, eval=FALSE}
 $$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
@@ -576,9 +582,9 @@ aos poucos!
 
 ---
 
-## Chuncks de Código R
+## Chunks de Código R
 
-Os chuncks são campos onde podemos inserir código de R (ou Python, SQL,  Bash...) em um arquivo RMarkdown. Existe um atalho do teclado para criar chunks no RStudio:  `Ctrl + ALt + I`. Também é possível criar um chunck clicando no seguinte botão do RStudio:
+Os chunks são campos onde podemos inserir código de R (ou Python, SQL,  Bash...) em um arquivo RMarkdown. Existe um atalho do teclado para criar chunks no RStudio:  `Ctrl + ALt + I`. Também é possível criar um chunk clicando no seguinte botão do RStudio:
 
 
 ```{r echo=FALSE, out.width="90%"}
@@ -612,7 +618,6 @@ ggplot(mtcars) +
 ---
 class: middle
 
-## Exercício
 ### `exercicios/exercicio3.Rmd`
 .pull-left[
 ```{r, out.width="90%"}
@@ -622,8 +627,10 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 .pull-right[
 - Use `--- ` para separar o conteúdo em slides
-- Adicione um chunck para as seguintes tarefas:
-  - Faça o download e carregue a base de [capítulos da R-Ladies](https://benubah.github.io/r-community-explorer/data/rladies.csv). Fonte: [Shiny - R Community Explorer](https://benubah.github.io/r-community-explorer/rladies.html)
+- Deixamos o código para fazer o download e carregar a base de [capítulos da R-Ladies](https://benubah.github.io/r-community-explorer/data/rladies.csv). Fonte: [Shiny - R Community Explorer](https://benubah.github.io/r-community-explorer/rladies.html)
+
+- Adicione um chunk para as seguintes tarefas:
+
   - Quantos capítulos estão cadastrados nessa base?
   - No total, quantos membros a R-Ladies tem?
   - Faça algum gráfico com os dados dessa base. Ex: histograma com a frequência de membros.
@@ -634,13 +641,23 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 
 
 ---
-### Opções de Chunck
+### Opções de Chunk
+
+- Há uma variedade de opções de chunk que podem afetar como os chunks de código são compilados. Exemplos: 
+
+- `echo=FALSE`- evita que o próprio código apareça
+
+- `eval=FALSE` - mostra o código, mas ele não é executado
+
+- `warning=FALSE` e `message=FALSE` - oculta messagens de avisos produzidas
+
+- `out.width` - controla o a largura das figuras, gráficos, tabelas geradas (Ex: out.width = "100%")
+
+- Ex de configuração do chunk: `{r, warning=FALSE, message=FALSE}`
 
 
 ---
-class: 
-
-## Códigos em R - Opções de chunck
+## Códigos em R - Opções de chunk
 
 .pull-left[
 ### Código + Resultado
@@ -669,21 +686,22 @@ nrow(mtcars)
 
 
 ---
-### Opções globais de Chunck
+### Opções globais de Chunk
 
-As opções globais de chunck são opções de chucnk que são válidas para o documento inteiro. Algumas opções são úteis, como `fig.align = "center"`.
-Para configurar as opções globais de chunck, modifique o código abaixo e insira após o código `yaml` (retire os `#` no início de cada linha):
+As opções globais de chunk são opções de chunk que são válidas para o documento inteiro. Algumas opções são úteis, como `fig.align = "center"`.
+Para configurar as opções globais de chunk, modifique o código abaixo e insira após o código `yaml` (retire os `#` no início de cada linha):
 
-```{r}
+- Ex:
+  - Configurações do chunk:
+`{r setup, include=FALSE}`
+  - Conteúdo do chunk:
+`knitr::opts_chunk$set(echo = TRUE)`
 
-# ```{r setup, include=FALSE}
-# knitr::opts_chunk$set(echo = TRUE)
-# ```
 
-```
 ---
+
 ## Dicas - RStudio
-```{r echo=FALSE, out.width="90%"}
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics("img/rmd-dicas.png")
 ```
 
@@ -700,7 +718,28 @@ A base mtcars possui `r nrow(mtcars)` carros.
 ```
 
 ---
-###Adicionando imagens usando o Knitr
+class: middle
+
+### `exercicios/exercicio4.Rmd`
+.pull-left[
+```{r, out.width="90%"}
+knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")
+```
+]
+
+.pull-right[
+
+- Altere os chunks criados anteriormente: 
+  - No chunk que carrega a base, utilize as opções `message` e `warning` para que não apareça mensagens de aviso.
+  - No chunk que gera um gráfico, adicione a opção `out.width` para que o gráfico gerado fique inteiramente dentro do slide.
+  - Utilize os códigos utilizados anteriormente e o que aprendeu sobre inline code para escrever o seguinte texto: "A organização R-Ladies atualmente apresenta X capítulos, e um total de Y participantes".
+
+]
+
+
+
+---
+### Adicionando imagens usando o Knitr
 
 Função: `knitr::include_graphics()`
 
@@ -709,7 +748,7 @@ Exemplo:
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
-###Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando Knitr: opções de Chunk 
 
 - `out.width = "50%"` - tamanho da imagem
 
@@ -721,7 +760,7 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 [Opções do KnitR](https://yihui.name/knitr/options/#chunk-options)
 
 ---
-###Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando Knitr: opções de Chunk 
 
 - **Alinhamento da figura**
 - `fig.align = 'center', 'default', **'left'**,'right'` 
@@ -736,7 +775,7 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 ---
-###Adicionando imagens usando Knitr: opções de Chunk 
+### Adicionando imagens usando Knitr: opções de Chunk 
 
 - Legenda de figura 
 
@@ -748,17 +787,9 @@ knitr::include_graphics("https://www.r-project.org/Rlogo.png")
 ```
 
 ---
-# Dicas:
-- Pacote remedy 
-- Pacote emo - usar emoticons
-- [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/)
-
-<!-------------ABAIXO: SLIDE MODELO PARA EXERCÍCIOS----------->
----
 class: middle
 
-## Exercício
-### `exercicios/exercicioX.Rmd`
+### `exercicios/exercicio5.Rmd`
 .pull-left[
 ```{r, out.width="90%"}
 knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy-downsized.gif")
@@ -766,9 +797,54 @@ knitr::include_graphics("https://media3.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy
 ]
 
 .pull-right[
+- Utilize a opção de chunk `fig.align` para centralizar o gráfico gerado.
+- Adicione a imagem do logo do pacote xaringan utilizando a função `knitr::include_graphics`.
 
+- Utilizando as opções de chunk: 
+  - Centralize essa imagem;
+  - Não deixe o código visível
+  - Adicione uma legenda.
 
-
-
-  
 ]
+
+
+
+<!-------------FINALIZANDO A APRESENTAÇÃO----------->
+
+---
+## Dicas:
+- Pacote [remedy](https://github.com/ThinkR-open/remedy) - Addin que facilita o uso de markdown
+- Pacote [emo](https://github.com/hadley/emo) - Usar emoticons
+- Pacote [ermoji](https://github.com/gadenbuie/ermoji) - Addin que facilita encontrar os emojis
+- Pacote [giphyr](https://github.com/haozhu233/giphyr) - Addin que facilita encontrar gifs
+- [xaringan themer](https://www.garrickadenbuie.com/project/xaringanthemer/) - Pacote que facilita personalizar o tema
+
+### Converter a apresentação em PDF
+- Pacote `pagedown` oferece uma função para isso:
+```{r echo=TRUE, eval=FALSE}
+remotes::install_github('rstudio/pagedown')
+pagedown::chrome_print("index.html")
+```
+
+
+### Divulgando online
+- [GitHub Pages](https://pages.github.com/)
+- [Netlify](https://www.netlify.com/)
+
+---
+class: middle  
+
+# Agradecimentos
+
+
+```{r, out.width="40%"}
+knitr::include_graphics("https://media1.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif")
+```
+
+
+- Yihui Xie - Pelo pacotes, livros, blogposts, vídeos
+- [Bruna Wundervald](http://brunaw.com/) e [Haydee Svab](https://www.linkedin.com/in/hsvab/) - Por ajudar em versões anteriores da apresentação
+- [Julio Trecenti](https://github.com/jtrecenti), [Curso-R](https://www.curso-r.com/) e [13 aMostra de Estatística](https://www.ime.usp.br/~amostra/) - IME USP pelo mini-curso de RMarkdown em 2018
+
+
+- Apresentação feita com [Xaringan](https://github.com/yihui/xaringan).

@@ -20,7 +20,7 @@ output:
 
 O **pacote** `xaringan` foi criado por [Yihui Xie](https://yihui.name/), que é ~~um ninja~~ desenvolvedor de software na *RStudio*.
 
-
+---
 
 # Exercício 3
 
@@ -30,24 +30,30 @@ url <- "https://benubah.github.io/r-community-explorer/data/rladies.csv"
 download.file(url, "data/rladies.csv")
 ```
 
-
+---
 ## Carregue a base de dados
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(readr)
 rladies <- read_csv("data/rladies.csv")
 ```
-
+---
 
 ## Quantos capítulos estão cadastrados na base?
-
-
-
-
-
-
+```{r}
+nrow(rladies)
+```
+---
 ## No total, quantos membros a R-Ladies tem?
-
-
-
-
+```{r}
+sum(rladies$members)
+```
+---
 ## Faça algum gráfico
+```{r, out.width="60%"}
+hist(x = rladies$members)
+```
+
+---
+# Exercício 4
+- A organização R-Ladies atualmente apresenta `r nrow(rladies)` capítulos, e um total de `r format(sum(rladies$members), scientific = FALSE)` participantes.
+
