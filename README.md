@@ -19,4 +19,6 @@ https://github.com/beatrizmilz/aMostra-IME-2019-Xaringan/archive/master.zip
 
 2) Descompacte o arquivo `.zip`.
 
+3) Abrir o projeto `aMostra-IME-2019-Xaringan.Rproj`
+
 3) Os arquivos para realizar os exercícios estão na pasta `exercicios/`
