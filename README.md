@@ -11,7 +11,7 @@ https://www.ime.usp.br/~amostra/
 - Apresentação: 
 https://beatrizmilz.github.io/aMostra-IME-2019-Xaringan
 
-Primeiros passos:
+**Primeiros passos:**
 
 1) Entre no seguinte link: http://bit.ly/ime-xaringan
 1) Faça o download do repositório para fazer os exercícios:
