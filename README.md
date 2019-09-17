@@ -4,10 +4,11 @@
 <!-- badges: end -->
 
 Repositório com a apresentação e materiais do workshop.
-Evento:
+
+- Evento:
 https://www.ime.usp.br/~amostra/
 
-Apresentação: 
+- Apresentação: 
 https://beatrizmilz.github.io/aMostra-IME-2019-Xaringan
 
 Primeiros passos:
